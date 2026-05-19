@@ -15,6 +15,9 @@
       xpath: /configure/system/security/snmp
       filter:
         community: ""
+      reference:
+        community: "osama"
+        base: 12
       comparison: not_exists
       error_message: "SNMP community strings (v1/v2c) are present — remove them"
       success_message: "No v1/v2c community strings found"
