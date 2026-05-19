@@ -10,7 +10,7 @@
       xpath: /configure/system/security/snmp
       comparison: exact
       reference:
-        - community:
+        community:
           community-string: "76HzdddhlPpRo1Vql+ZB5spLqccgYQ== hash2"
           access-permissions": "wr"
           version: "v2c"
