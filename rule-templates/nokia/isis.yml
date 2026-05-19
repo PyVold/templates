@@ -10,18 +10,9 @@
       xpath: /configure/system/security/snmp
       comparison: exact
       reference:
-        community: "76HzdddhlPpRo1Vql+ZB5spLqccgYQ== hash2"
-        access-permissions": "wr"
-        version: "v2c"
+        - community:
+          community-string: "76HzdddhlPpRo1Vql+ZB5spLqccgYQ== hash2"
+          access-permissions": "wr"
+          version: "v2c"
       error_message: "SNMP is not configured"
       success_message: "SNMP section present"
-    - name: "No community strings (v1/v2c)"
-      xpath: /configure/system/security/snmp
-      filter:
-        community: ""
-      reference:
-        community: "osama"
-        base: 12
-      comparison: not_exists
-      error_message: "SNMP community strings (v1/v2c) are present — remove them"
-      success_message: "No v1/v2c community strings found"
