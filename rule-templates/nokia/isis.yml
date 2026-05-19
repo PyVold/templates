@@ -8,7 +8,7 @@
   checks:
     - name: "SNMPv3 configured"
       xpath: /configure/system/security/snmp
-      comparison: exists
+      comparison: exact
       error_message: "SNMP is not configured"
       success_message: "SNMP section present"
     - name: "No community strings (v1/v2c)"
