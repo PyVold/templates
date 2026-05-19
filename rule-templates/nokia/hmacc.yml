@@ -1,0 +1,31 @@
+  name: "CIS: Nokia ISIS HMAC-SHA-256 Authentication"
+  description: "IS-IS interfaces must use HMAC-SHA-256, not MD5 or plaintext"
+  category: "CIS Benchmark"
+  framework: "CIS"
+  severity: "high"
+  vendors:
+    - nokia_sros
+  checks:
+    - name: "ISIS system interface has authentication"
+      xpath: /configure/router/isis/interface
+      filter:
+        interface-name: "system"
+      comparison: contains
+      reference:
+        level:
+          - level-number: 1
+            authentication:
+              key-chain: ""      # any non-empty value passes
+          - level-number: 2
+            authentication:
+              key-chain: ""
+      error_message: "IS-IS system interface is missing authentication on level 1 or 2"
+      success_message: "IS-IS authentication is configured on both levels"
+
+    - name: "ISIS MD5/plaintext auth is absent"
+      xpath: /configure/router/isis
+      filter:
+        authentication-type: "password"
+      comparison: not_exists
+      error_message: "IS-IS is using weak MD5/plaintext authentication — must use key-chain (HMAC-SHA-256)"
+      success_message: "No weak IS-IS authentication found"
