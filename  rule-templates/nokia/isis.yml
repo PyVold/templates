@@ -1,0 +1,20 @@
+  name: "CIS: Nokia SNMPv3 Only"
+  description: "Ensure SNMPv1/v2c are disabled and SNMPv3 is configured"
+  category: "CIS Benchmark"
+  framework: "CIS"
+  severity: "high"
+  vendors:
+    - nokia_sros
+  checks:
+    - name: "SNMPv3 configured"
+      xpath: /configure/system/security/snmp
+      comparison: exists
+      error_message: "SNMP is not configured"
+      success_message: "SNMP section present"
+    - name: "No community strings (v1/v2c)"
+      xpath: /configure/system/security/snmp
+      filter:
+        community: ""
+      comparison: not_exists
+      error_message: "SNMP community strings (v1/v2c) are present — remove them"
+      success_message: "No v1/v2c community strings found"
