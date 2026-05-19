@@ -9,6 +9,10 @@
     - name: "SNMPv3 configured"
       xpath: /configure/system/security/snmp
       comparison: exact
+      reference:
+        community: "76HzdddhlPpRo1Vql+ZB5spLqccgYQ== hash2"
+        access-permissions": "wr"
+        version: "v2c"
       error_message: "SNMP is not configured"
       success_message: "SNMP section present"
     - name: "No community strings (v1/v2c)"
