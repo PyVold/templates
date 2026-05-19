@@ -13,7 +13,7 @@
         community:
           76HzdddhlPpRo1Vql+ZB5spLqccgYQ== hash2:
             community-string: "76HzdddhlPpRo1Vql+ZB5spLqccgYQ== hash2"
-            access-permissions": "r"
+            access-permissions: "r"
             version: "v2c"
       error_message: "SNMP is not configured"
       success_message: "SNMP section present"
